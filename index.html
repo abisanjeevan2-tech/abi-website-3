@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abi's Drapes &amp; Makeup &#8212; Charlotte, NC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F7F6F3;--bg-alt:#F0EDE7;--card:#FFFFFF;--border:#E5E3DF;--primary:#D97757;--primary-dark:#C4633D;--foreground:#1F1F1F;--muted:#6B6B6B;--secondary:#E8DCCF;--radius:20px;--nav-h:76px;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Jost',system-ui,sans-serif}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--bg);color:var(--foreground);line-height:1.6;overflow-x:hidden}
+.page{display:none}.page.active{display:block}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:var(--nav-h)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{cursor:pointer}
+.logo-name{font-family:var(--font-display);font-size:1.45rem;font-weight:500;letter-spacing:.02em;color:var(--foreground);display:block}
+.logo-sub{font-size:.7rem;font-weight:300;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+.nav-links{display:flex;gap:.2rem;align-items:center}
+.nav-link{padding:.45rem .9rem;border-radius:10px;font-size:.875rem;font-weight:400;color:var(--muted);cursor:pointer;transition:all .2s;border:none;background:none;font-family:var(--font-body);letter-spacing:.02em}
+.nav-link:hover{background:var(--secondary);color:var(--foreground)}
+.nav-link.active{background:var(--secondary);color:var(--foreground);font-weight:500}
+.nav-book{padding:.55rem 1.2rem;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:var(--font-body);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.03em}
+.nav-book:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(217,119,87,.35)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--foreground);margin:4px 0;border-radius:2px;transition:.3s}
+.mobile-nav{display:none}
+@media(max-width:900px){.nav-links{display:none}.nav-book{display:none}.hamburger{display:block}.mobile-nav{position:fixed;inset:var(--nav-h) 0 0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:99;padding:2rem;flex-direction:column;gap:.5rem}.mobile-nav.open{display:flex}.mobile-nav .nav-link{font-size:1.1rem;padding:.9rem 1rem;border-bottom:1px solid var(--border);width:100%;text-align:left}.mobile-nav .nav-book{width:100%;margin-top:1rem;padding:1rem;text-align:center;border-radius:var(--radius)}}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+.container-sm{max-width:800px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0}.section-alt{padding:6rem 0;background:var(--bg-alt)}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.2}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.8rem,3.5vw,3rem)}h3{font-size:1.35rem}
+.tag{display:inline-block;padding:.35rem 1rem;background:var(--secondary);border-radius:50px;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:var(--font-body);font-size:.9rem;font-weight:500;cursor:pointer;transition:all .25s;text-decoration:none;letter-spacing:.04em}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(217,119,87,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:transparent;color:var(--foreground);border:1.5px solid var(--border);border-radius:50px;font-family:var(--font-body);font-size:.9rem;font-weight:500;cursor:pointer;transition:all .25s;text-decoration:none;letter-spacing:.04em}
+.btn-outline:hover{background:var(--secondary);border-color:var(--secondary);transform:translateY(-2px)}
+.hero{min-height:calc(100vh - var(--nav-h));display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:5rem 2rem;max-width:1280px;margin:0 auto}
+@media(max-width:768px){.hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}.hero-image-wrap{order:-1}}
+.hero h1{margin:1rem 0;line-height:1.15}.hero h1 em{font-style:italic;color:var(--primary)}
+.hero p{font-size:1.05rem;color:var(--muted);line-height:1.75;margin:1.5rem 0 2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-image-wrap{position:relative}
+.hero-img{width:100%;aspect-ratio:3/4;border-radius:24px;object-fit:cover;box-shadow:0 24px 64px rgba(0,0,0,.15);display:block}
+.hero-badge{position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.4rem;box-shadow:0 8px 24px rgba(0,0,0,.1);display:flex;align-items:center;gap:.8rem}
+.badge-num{font-family:var(--font-display);font-size:1.8rem;font-weight:500;color:var(--primary)}
+.badge-txt{font-size:.8rem;color:var(--muted);line-height:1.3}
+.badge-txt strong{color:var(--foreground);display:block;font-weight:500}
+.hero-deco{position:absolute;top:-2rem;right:-2rem;width:200px;height:200px;background:var(--primary);opacity:.08;border-radius:50%;filter:blur(40px);pointer-events:none}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+.service-card .card-img{aspect-ratio:1;overflow:hidden;background:var(--secondary)}
+.service-card .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.service-card:hover .card-img img{transform:scale(1.05)}
+.service-card .card-body{padding:1.5rem}
+.service-card .card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
+.service-card .card-title{font-family:var(--font-display);font-size:1.3rem;font-weight:500}
+.service-card .card-price{color:var(--primary);font-weight:600;font-size:1.1rem}
+.service-card .card-dur{font-size:.8rem;color:var(--muted);margin-bottom:.75rem}
+.service-card p{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.card-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--primary);font-size:.875rem;font-weight:500;cursor:pointer;transition:gap .2s;border:none;background:none;font-family:var(--font-body)}
+.card-link:hover{gap:.7rem}
+.gallery-grid-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+@media(max-width:600px){.gallery-grid-preview{grid-template-columns:repeat(2,1fr)}}
+.gallery-thumb{aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--secondary);cursor:pointer;transition:transform .25s}
+.gallery-thumb:hover{transform:scale(1.03)}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+@media(max-width:900px){.testimonials-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.testimonials-grid{grid-template-columns:1fr}}
+.t-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem}
+.stars{color:var(--primary);letter-spacing:2px;margin-bottom:1rem}
+.t-quote{color:var(--foreground);line-height:1.7;margin-bottom:1.2rem;font-style:italic;font-family:var(--font-display);font-size:1.05rem}
+.t-name{font-weight:600;font-size:.875rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.cta-box{text-align:center;max-width:680px;margin:0 auto;padding:5rem 2rem}
+.cta-box h2{margin-bottom:1rem}.cta-box p{color:var(--muted);margin-bottom:2rem;font-size:1.05rem}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-head h2{margin-bottom:.75rem}.sec-head p{color:var(--muted);max-width:540px;margin:0 auto}
+.page-hero{padding:5rem 2rem;background:var(--bg-alt);text-align:center}
+.page-hero h1{margin-bottom:1rem}.page-hero p{color:var(--muted);max-width:600px;margin:0 auto;font-size:1.05rem}
+.all-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+@media(max-width:900px){.all-services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.all-services-grid{grid-template-columns:1fr}}
+.srv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .25s,transform .25s}
+.srv-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
+.srv-img{aspect-ratio:1;overflow:hidden;background:var(--secondary)}
+.srv-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.srv-card:hover .srv-img img{transform:scale(1.05)}
+.srv-body{padding:1.75rem}
+.srv-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem}
+.srv-title{font-family:var(--font-display);font-size:1.35rem;font-weight:500}
+.srv-price{color:var(--primary);font-weight:600;font-size:1.2rem}
+.srv-dur{font-size:.8rem;color:var(--muted);margin-bottom:.9rem}
+.srv-desc{font-size:.875rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem}
+.srv-features{margin-bottom:1.5rem}
+.srv-features p{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.srv-features li{font-size:.8rem;color:var(--muted);list-style:none;padding:.2rem 0 .2rem 1rem;position:relative}
+.srv-features li::before{content:'·';color:var(--primary);font-size:1.2rem;position:absolute;left:0;top:-1px}
+.srv-btn{width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:var(--font-body);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.srv-btn:hover{background:var(--primary-dark)}
+.addons-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.addons-grid{grid-template-columns:1fr}}
+.addon-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.addon-name{font-weight:500;font-size:.9rem}.addon-sub{font-size:.8rem;color:var(--muted)}.addon-price{color:var(--primary);font-weight:600;font-size:1rem}
+.filter-bar{position:sticky;top:var(--nav-h);z-index:50;background:rgba(247,246,243,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 2rem}
+.filter-inner{max-width:1280px;margin:0 auto;display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.filter-btn{padding:.5rem 1.2rem;border:1.5px solid var(--border);border-radius:50px;background:var(--card);color:var(--foreground);font-family:var(--font-body);font-size:.85rem;cursor:pointer;transition:all .2s}
+.filter-btn:hover{background:var(--secondary);border-color:var(--secondary)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.masonry{columns:3;column-gap:1.25rem;padding:2rem;max-width:1280px;margin:0 auto}
+@media(max-width:900px){.masonry{columns:2}}
+@media(max-width:500px){.masonry{columns:2;padding:1rem}}
+.masonry-item{break-inside:avoid;margin-bottom:1.25rem;border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.masonry-item:hover{transform:scale(1.02);box-shadow:0 12px 32px rgba(0,0,0,.15)}
+.masonry-item img{width:100%;display:block}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2.5rem}}
+.about-img{aspect-ratio:3/4;border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.12)}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block}
+.about-text h2{margin-bottom:1.5rem}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
+.about-text .highlight{color:var(--foreground);font-weight:500;font-family:var(--font-display);font-size:1.05rem;font-style:italic}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+@media(max-width:900px){.values-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.values-grid{grid-template-columns:1fr}}
+.value-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;text-align:center;transition:all .25s}
+.value-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.07)}
+.value-icon{width:64px;height:64px;background:var(--secondary);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem}
+.value-card h4{font-family:var(--font-display);font-size:1.15rem;font-weight:500;margin-bottom:.5rem}
+.value-card p{font-size:.85rem;color:var(--muted);line-height:1.65}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:600px){.skills-grid{grid-template-columns:1fr}}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}
+.skill-card h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:1rem}
+.skill-card li{list-style:none;font-size:.875rem;color:var(--muted);padding:.35rem 0 .35rem 1rem;position:relative;border-bottom:1px solid var(--border)}
+.skill-card li:last-child{border-bottom:none}
+.skill-card li::before{content:'--';color:var(--primary);position:absolute;left:0}
+.booking-form-wrap{max-width:760px;margin:0 auto}
+.booking-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:3rem;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+@media(max-width:600px){.booking-card{padding:1.75rem}}
+.form-section{margin-bottom:2.5rem}
+.form-section h3{font-family:var(--font-display);font-size:1.2rem;font-weight:500;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.input-wrap{position:relative}
+.input-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:1rem}
+input,select,textarea{width:100%;padding:.9rem 1rem;background:var(--bg);border:1.5px solid var(--border);border-radius:14px;font-family:var(--font-body);font-size:.9rem;color:var(--foreground);transition:border-color .2s,box-shadow .2s;outline:none}
+.has-icon input,.has-icon select{padding-left:2.75rem}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(217,119,87,.12)}
+textarea{resize:none}
+.form-note{font-size:.8rem;color:var(--muted);margin-top:.4rem}
+.form-notice{background:var(--bg-alt);border-radius:14px;padding:1.25rem;text-align:center;font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
+.submit-btn{width:100%;padding:1rem;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:var(--font-body);font-size:.95rem;font-weight:500;cursor:pointer;transition:all .25s;letter-spacing:.04em}
+.submit-btn:hover{background:var(--primary-dark);box-shadow:0 6px 24px rgba(217,119,87,.35)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+@media(max-width:600px){.steps-grid{grid-template-columns:1fr}}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;font-family:var(--font-display);font-size:1.4rem;display:inline-flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.step-title{font-weight:500;margin-bottom:.5rem}.step-text{font-size:.85rem;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-info h2{margin-bottom:1rem}.contact-info>p{color:var(--muted);margin-bottom:2.5rem}
+.contact-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.75rem}
+.contact-icon{width:48px;height:48px;background:var(--secondary);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.contact-item h4{font-weight:600;font-size:.875rem;margin-bottom:.2rem}
+.contact-item a{color:var(--muted);text-decoration:none;transition:color .2s;font-size:.9rem}
+.contact-item a:hover{color:var(--primary)}
+.contact-item p{color:var(--muted);font-size:.8rem;margin-top:.15rem}
+.wa-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:var(--primary);color:#fff;border-radius:10px;font-size:.85rem;text-decoration:none;transition:all .2s;margin-top:.5rem;font-weight:500}
+.wa-btn:hover{background:var(--primary-dark)}
+.contact-form-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+.contact-form-card h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:1.5rem}
+.map-box{background:var(--secondary);border-radius:var(--radius);aspect-ratio:21/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;margin-top:3rem}
+.map-box p{font-weight:500}.map-box span{font-size:.85rem;color:var(--muted)}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1rem;cursor:pointer;transition:box-shadow .2s}
+.faq-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.faq-q{font-weight:500;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-q span{font-size:1.1rem;color:var(--muted);transition:transform .2s}
+.faq-a{font-size:.875rem;color:var(--muted);line-height:1.7;margin-top:.9rem;display:none}
+.faq-item.open .faq-a{display:block}.faq-item.open .faq-q span{transform:rotate(45deg)}
+.login-wrap{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;justify-content:center;padding:3rem 2rem}
+.login-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:3rem;width:100%;max-width:460px;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+.login-logo{text-align:center;margin-bottom:2rem}
+.login-logo h2{font-family:var(--font-display);font-size:2rem}
+.login-logo p{font-size:.85rem;color:var(--muted)}
+.login-divider{text-align:center;position:relative;margin:1.5rem 0}
+.login-divider::before{content:'';position:absolute;left:0;top:50%;height:1px;width:100%;background:var(--border)}
+.login-divider span{background:var(--card);position:relative;padding:0 1rem;font-size:.8rem;color:var(--muted)}
+.login-switch{text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--muted)}
+.login-switch a{color:var(--primary);cursor:pointer;font-weight:500}
+footer{background:var(--card);border-top:1px solid var(--border)}
+.footer-inner{max-width:1280px;margin:0 auto;padding:4rem 2rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand .logo-name{font-size:1.2rem;margin-bottom:.75rem;display:inline-block}
+.footer-brand p{font-size:.85rem;color:var(--muted);line-height:1.7}
+.footer-col h4{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.25rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.65rem}
+.footer-col a{font-size:.875rem;color:var(--muted);text-decoration:none;transition:color .2s;cursor:pointer}
+.footer-col a:hover{color:var(--primary)}
+.footer-col .contact-li{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--muted);margin-bottom:.65rem}
+.ig-btn{width:40px;height:40px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--foreground);font-size:1rem;transition:all .2s}
+.ig-btn:hover{background:var(--primary);color:#fff}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:1.5rem 2rem;border-top:1px solid var(--border);text-align:center;font-size:.8rem;color:var(--muted)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .6s ease both}.fade-up-2{animation:fadeUp .6s .12s ease both}.fade-up-3{animation:fadeUp .6s .24s ease both}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--foreground);color:#fff;padding:1rem 1.5rem;border-radius:14px;font-size:.875rem;font-weight:500;z-index:9999;opacity:0;transform:translateY(12px);transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+</style>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">
+      <span class="logo-name">Abi's Drapes &amp; Makeup</span>
+      <span class="logo-sub">Charlotte, NC</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')" id="nav-home">Home</button>
+      <button class="nav-link" onclick="showPage('services')" id="nav-services">Services</button>
+      <button class="nav-link" onclick="showPage('gallery')" id="nav-gallery">Gallery</button>
+      <button class="nav-link" onclick="showPage('about')" id="nav-about">About</button>
+      <button class="nav-link" onclick="showPage('contact')" id="nav-contact">Contact</button>
+      <button class="nav-link" onclick="showPage('login')" id="nav-login">Login</button>
+    </div>
+    <button class="nav-book" onclick="showPage('booking')">Book Appointment</button>
+    <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <button class="nav-link" onclick="showPage('home');closeMobile()">Home</button>
+  <button class="nav-link" onclick="showPage('services');closeMobile()">Services</button>
+  <button class="nav-link" onclick="showPage('gallery');closeMobile()">Gallery</button>
+  <button class="nav-link" onclick="showPage('about');closeMobile()">About</button>
+  <button class="nav-link" onclick="showPage('contact');closeMobile()">Contact</button>
+  <button class="nav-link" onclick="showPage('login');closeMobile()">Login</button>
+  <button class="nav-book" onclick="showPage('booking');closeMobile()">Book Appointment</button>
+</div>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="tag fade-up">Charlotte's Premier South Indian Beauty</span>
+      <h1 class="fade-up-2">South Indian Bridal Makeup &amp; <em>Saree Draping</em> in Charlotte</h1>
+      <p class="fade-up-3">Bringing authentic South Indian beauty traditions to Charlotte &mdash; expert bridal makeup, traditional saree draping, and professional styling that honors your heritage.</p>
+      <div class="hero-btns fade-up-3">
+        <button class="btn-primary" onclick="showPage('booking')">Book Appointment &rarr;</button>
+        <button class="btn-outline" onclick="showPage('gallery')">View Gallery</button>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-up-2">
+      <div class="hero-deco"></div>
+      <img id="hero-img" class="hero-img" src="" alt="South Indian Bridal Look">
+      <div class="hero-badge">
+        <div class="badge-num">50+</div>
+        <div class="badge-txt"><strong>Happy Brides</strong>Charlotte &amp; beyond</div>
+      </div>
+    </div>
+  </div>
+  <section class="section-alt">
+    <div class="container">
+      <div class="sec-head"><h2>Featured Services</h2><p>Professional beauty services tailored for South Indian traditions</p></div>
+      <div class="services-grid">
+        <div class="card service-card"><div class="card-img"><img id="svc-bridal" src="" alt="Bridal Makeup"></div><div class="card-body"><div class="card-head"><span class="card-title">Bridal Makeup</span><span class="card-price">$350</span></div><div class="card-dur">3&ndash;4 hours</div><p>Complete South Indian bridal makeup with airbrush, hair styling, and traditional jewelry placement.</p><button class="card-link" onclick="showPage('booking')">Book Now &rarr;</button></div></div>
+        <div class="card service-card"><div class="card-img"><img id="svc-saree" src="" alt="Saree Draping"></div><div class="card-body"><div class="card-head"><span class="card-title">Saree Draping</span><span class="card-price">$100</span></div><div class="card-dur">45&ndash;60 min</div><p>Traditional South Indian saree draping including Kanjivaram, Nivi, and other regional styles.</p><button class="card-link" onclick="showPage('booking')">Book Now &rarr;</button></div></div>
+        <div class="card service-card"><div class="card-img"><img id="svc-party" src="" alt="Party Makeup"></div><div class="card-body"><div class="card-head"><span class="card-title">Party Makeup</span><span class="card-price">$150</span></div><div class="card-dur">1.5&ndash;2 hours</div><p>Elegant makeup for special occasions, parties, and events with a modern or traditional touch.</p><button class="card-link" onclick="showPage('booking')">Book Now &rarr;</button></div></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><button class="card-link" onclick="showPage('services')" style="font-size:.95rem;">View All Services &rarr;</button></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="sec-head"><h2>Our Work</h2><p>Browse our portfolio of beautiful transformations</p></div>
+      <div class="gallery-grid-preview">
+        <div class="gallery-thumb"><img id="gp-0" src="" alt="Gallery"></div>
+        <div class="gallery-thumb"><img id="gp-1" src="" alt="Gallery"></div>
+        <div class="gallery-thumb"><img id="gp-2" src="" alt="Gallery"></div>
+        <div class="gallery-thumb"><img id="gp-3" src="" alt="Gallery"></div>
+        <div class="gallery-thumb"><img id="gp-4" src="" alt="Gallery"></div>
+        <div class="gallery-thumb"><img id="gp-5" src="" alt="Gallery"></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;"><button class="btn-primary" onclick="showPage('gallery')">View Full Gallery &rarr;</button></div>
+    </div>
+  </section>
+  <section class="section-alt">
+    <div class="container">
+      <div class="sec-head"><h2>What Clients Say</h2><p>Trusted by brides across Charlotte</p></div>
+      <div class="testimonials-grid">
+        <div class="t-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="t-quote">"Abi made my wedding day absolutely perfect! Her attention to detail and understanding of South Indian bridal makeup is unmatched. I felt like a queen!"</p><div class="t-name">Priya Sharma</div></div>
+        <div class="t-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="t-quote">"The saree draping was flawless. She perfectly captured the traditional Kanjivaram style I wanted. Highly recommend!"</p><div class="t-name">Lakshmi Reddy</div></div>
+        <div class="t-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="t-quote">"Professional, talented, and so sweet! Abi understood exactly what I wanted and delivered beyond expectations."</p><div class="t-name">Divya Krishnan</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section"><div class="cta-box"><h2>Ready to Look Your Best?</h2><p>Book your appointment today and experience the art of South Indian beauty</p><button class="btn-primary" onclick="showPage('booking')">Book Your Appointment &rarr;</button></div></section>
+</div>
+
+<!-- SERVICES -->
+<div id="page-services" class="page">
+  <div class="page-hero"><h1>Our Services</h1><p>Professional South Indian bridal makeup and beauty services in Charlotte, NC.</p></div>
+  <section class="section"><div class="container"><div class="all-services-grid">
+    <div class="srv-card"><div class="srv-img"><img id="srv-bridal" src="" alt="Bridal Makeup"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Bridal Makeup</span><span class="srv-price">$350</span></div><div class="srv-dur">3&ndash;4 hours</div><p class="srv-desc">Complete South Indian bridal makeup including airbrush foundation, traditional eye makeup, contouring, hair styling, and jewelry placement.</p><div class="srv-features"><p>Includes:</p><li>Airbrush or HD makeup</li><li>Traditional South Indian bridal look</li><li>Hair styling and setting</li><li>Jewelry &amp; accessories placement</li><li>Touch-up kit included</li><li>False lashes</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+    <div class="srv-card"><div class="srv-img"><img id="srv-saree" src="" alt="Saree Draping"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Saree Draping</span><span class="srv-price">$100</span></div><div class="srv-dur">45&ndash;60 minutes</div><p class="srv-desc">Expert traditional South Indian saree draping. Specializing in Kanjivaram, Nivi, Bengali, and other regional styles.</p><div class="srv-features"><p>Includes:</p><li>Traditional South Indian styles</li><li>Kanjivaram, Nivi, Bengali styles</li><li>Perfect pleating and pinning</li><li>Pallu styling</li><li>Secure all-day wear</li><li>Regional style expertise</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+    <div class="srv-card"><div class="srv-img"><img id="srv-party" src="" alt="Party Makeup"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Party Makeup</span><span class="srv-price">$150</span></div><div class="srv-dur">1.5&ndash;2 hours</div><p class="srv-desc">Elegant makeup for parties, receptions, and special events. Modern or traditional looks customized to your outfit.</p><div class="srv-features"><p>Includes:</p><li>Customized party look</li><li>Modern or traditional style</li><li>Long-lasting formula</li><li>Contouring and highlighting</li><li>Eye makeup and lashes</li><li>Touch-up guidance</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+    <div class="srv-card"><div class="srv-img"><img id="srv-hair" src="" alt="Hair Styling"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Hair Styling</span><span class="srv-price">$80</span></div><div class="srv-dur">1 hour</div><p class="srv-desc">Professional hair styling for any occasion. From traditional South Indian buns to modern updos and flowing styles.</p><div class="srv-features"><p>Includes:</p><li>Traditional buns and braids</li><li>Modern updos</li><li>Hair accessories placement</li><li>Flower decoration (if provided)</li><li>Heat styling</li><li>Strong hold setting</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+    <div class="srv-card"><div class="srv-img"><img id="srv-trial" src="" alt="Trial Makeup"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Trial Makeup</span><span class="srv-price">$120</span></div><div class="srv-dur">2 hours</div><p class="srv-desc">Pre-wedding trial session to perfect your bridal look. Try different styles and techniques before your big day.</p><div class="srv-features"><p>Includes:</p><li>Try different makeup styles</li><li>Color palette selection</li><li>Product consultation</li><li>Photography test</li><li>Look refinement</li><li>Expert recommendations</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+    <div class="srv-card"><div class="srv-img"><img id="srv-engagement" src="" alt="Engagement Makeup"></div><div class="srv-body"><div class="srv-head"><span class="srv-title">Engagement Makeup</span><span class="srv-price">$200</span></div><div class="srv-dur">2&ndash;3 hours</div><p class="srv-desc">Beautiful makeup for your engagement ceremony. A perfect balance between bridal and party makeup for this milestone.</p><div class="srv-features"><p>Includes:</p><li>Semi-bridal makeup</li><li>Hair styling included</li><li>Dewy or matte finish</li><li>Traditional or modern look</li><li>Long-wear formula</li><li>Optional saree draping</li></div><button class="srv-btn" onclick="showPage('booking')">Book Now</button></div></div>
+  </div></div></section>
+  <section class="section-alt"><div class="container-sm"><div class="sec-head"><h2>Additional Services</h2><p>Enhance your beauty experience with these add-ons</p></div><div class="addons-grid"><div class="addon-card"><div><div class="addon-name">Lash Extensions</div><div class="addon-sub">Add dramatic volume</div></div><div class="addon-price">+$40</div></div><div class="addon-card"><div><div class="addon-name">Airbrush Makeup</div><div class="addon-sub">Flawless, long-lasting finish</div></div><div class="addon-price">+$50</div></div><div class="addon-card"><div><div class="addon-name">Saree Draping (Add-on)</div><div class="addon-sub">With makeup package</div></div><div class="addon-price">+$80</div></div><div class="addon-card"><div><div class="addon-name">Travel Fee</div><div class="addon-sub">Within 25 miles of Charlotte</div></div><div class="addon-price">+$30</div></div></div></div></section>
+  <section class="section"><div class="cta-box"><h2>Not Sure Which Service?</h2><p>Contact us for a personalized consultation.</p><div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;"><button class="btn-primary" onclick="showPage('booking')">Book Appointment &rarr;</button><button class="btn-outline" onclick="showPage('contact')">Contact Us</button></div></div></section>
+</div>
+
+<!-- GALLERY -->
+<div id="page-gallery" class="page">
+  <div class="page-hero"><h1>Our Gallery</h1><p>Explore our portfolio of beautiful South Indian bridal transformations, elegant saree draping, and stunning party looks.</p></div>
+  <div class="filter-bar"><div class="filter-inner">
+    <button class="filter-btn active" onclick="filterGallery('All',this)">All</button>
+    <button class="filter-btn" onclick="filterGallery('Bridal',this)">Bridal</button>
+    <button class="filter-btn" onclick="filterGallery('Saree Draping',this)">Saree Draping</button>
+    <button class="filter-btn" onclick="filterGallery('Party',this)">Party</button>
+    <button class="filter-btn" onclick="filterGallery('Hair',this)">Hair</button>
+  </div></div>
+  <div class="masonry" id="gallery-masonry"></div>
+  <section class="section-alt"><div class="cta-box"><h2>Ready to Be Our Next Success Story?</h2><p>Book your appointment and let us create a beautiful look for you</p><button class="btn-primary" onclick="showPage('booking')">Book Your Appointment &rarr;</button></div></section>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="page-hero"><h1>About Abi's Drapes &amp; Makeup</h1><p>Bringing the art of South Indian beauty to Charlotte, North Carolina</p></div>
+  <section class="section"><div class="container"><div class="about-grid">
+    <div class="about-img"><img id="about-owner" src="" alt="Abi - Makeup Artist"></div>
+    <div class="about-text">
+      <h2>Meet Abi</h2>
+      <p>Hello! I'm Abi, the founder of Abi's Drapes &amp; Makeup. While I'm currently pursuing my degree in software engineering, my true passion has always been the art of makeup and traditional South Indian beauty.</p>
+      <p>Growing up immersed in South Indian culture, I developed a deep appreciation for the intricate art of bridal makeup and the elegant tradition of saree draping. What started as helping family and friends has blossomed into a fulfilling journey of making brides feel absolutely beautiful on their special day.</p>
+      <p>I specialize in authentic South Indian bridal makeup that honors traditional techniques while incorporating modern makeup artistry. From perfectly draped Kanjivaram sarees to stunning bridal transformations, I pour my heart into every service I provide.</p>
+      <p>Based in Charlotte, North Carolina, I'm proud to bring these cherished traditions to our community. Whether you're a bride preparing for your big day or attending a special event, I'm here to help you look and feel your absolute best.</p>
+      <p class="highlight">Let's create something beautiful together!</p>
+      <br><button class="btn-primary" onclick="showPage('booking')">Book With Me &rarr;</button>
+    </div>
+  </div></div></section>
+  <section class="section-alt"><div class="container"><div class="sec-head"><h2>What I Believe In</h2><p>The values that guide every service I provide</p></div><div class="values-grid"><div class="value-card"><div class="value-icon">&#10084;&#65039;</div><h4>Passion for Beauty</h4><p>Every client is treated with care and dedication to create their perfect look.</p></div><div class="value-card"><div class="value-icon">&#127942;</div><h4>Traditional Expertise</h4><p>Deep knowledge of South Indian bridal traditions and authentic makeup techniques.</p></div><div class="value-card"><div class="value-icon">&#128101;</div><h4>Client-Centered</h4><p>Your vision and comfort are always our top priority.</p></div><div class="value-card"><div class="value-icon">&#10024;</div><h4>Modern Techniques</h4><p>Blending traditional beauty with contemporary makeup artistry.</p></div></div></div></section>
+  <section class="section"><div class="container-sm"><div class="sec-head"><h2>Expertise &amp; Specializations</h2></div><div class="skills-grid"><div class="skill-card"><h3>Makeup Artistry</h3><ul><li>South Indian Bridal Makeup</li><li>HD &amp; Airbrush Techniques</li><li>Party &amp; Event Makeup</li><li>Traditional &amp; Modern Looks</li></ul></div><div class="skill-card"><h3>Saree Draping</h3><ul><li>Kanjivaram Style</li><li>Nivi Style</li><li>Bengali Style</li><li>Regional Variations</li></ul></div><div class="skill-card"><h3>Hair Styling</h3><ul><li>Traditional South Indian Buns</li><li>Braids &amp; Updos</li><li>Flower Decoration</li><li>Heat Styling</li></ul></div><div class="skill-card"><h3>Special Services</h3><ul><li>Pre-Wedding Trials</li><li>Engagement Makeup</li><li>On-Location Services</li><li>Touch-Up Services</li></ul></div></div></div></section>
+  <section class="section-alt"><div class="cta-box"><h2>Let's Create Your Perfect Look</h2><p>Whether it's your wedding day or a special celebration, I'd be honored to be part of your journey</p><div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;"><button class="btn-primary" onclick="showPage('booking')">Book Appointment &rarr;</button><button class="btn-outline" onclick="showPage('gallery')">View Portfolio</button></div></div></section>
+</div>
+
+<!-- BOOKING -->
+<div id="page-booking" class="page">
+  <div class="page-hero"><h1>Book Your Appointment</h1><p>Fill out the form below and we'll get back to you within 24 hours to confirm your appointment</p></div>
+  <section class="section"><div class="container"><div class="booking-form-wrap"><div class="booking-card">
+    <form onsubmit="handleBooking(event)">
+      <div class="form-section"><h3>Personal Information</h3>
+        <div class="form-group"><label>Full Name *</label><div class="input-wrap has-icon"><span class="input-icon">&#128100;</span><input type="text" name="name" required placeholder="Enter your full name"></div></div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone *</label><div class="input-wrap has-icon"><span class="input-icon">&#128222;</span><input type="tel" name="phone" required placeholder="(704) XXX-XXXX"></div></div>
+          <div class="form-group"><label>Email *</label><div class="input-wrap has-icon"><span class="input-icon">&#9993;</span><input type="email" name="email" required placeholder="your@email.com"></div></div>
+        </div>
+      </div>
+      <div class="form-section"><h3>Service Details</h3>
+        <div class="form-group"><label>Select Service *</label><select name="service" required><option value="">Choose a service</option><option>Bridal Makeup &mdash; $350</option><option>Saree Draping &mdash; $100</option><option>Party Makeup &mdash; $150</option><option>Hair Styling &mdash; $80</option><option>Trial Makeup &mdash; $120</option><option>Engagement Makeup &mdash; $200</option></select></div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Date *</label><div class="input-wrap has-icon"><span class="input-icon">&#128197;</span><input type="date" name="date" required></div></div>
+          <div class="form-group"><label>Preferred Time *</label><div class="input-wrap has-icon"><span class="input-icon">&#128336;</span><select name="time" required><option value="">Select time</option><option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option></select></div></div>
+        </div>
+        <div class="form-group"><label>Service Location *</label><div class="input-wrap has-icon"><span class="input-icon">&#128205;</span><input type="text" name="location" required placeholder="Your address or venue location"></div><div class="form-note">Travel fee of $30 applies for locations outside Charlotte city limits</div></div>
+      </div>
+      <div class="form-group"><label>Additional Notes</label><textarea name="notes" rows="4" placeholder="Any special requests, allergies, or additional details..."></textarea></div>
+      <div class="form-notice">You will be asked to login before confirming your appointment. We'll contact you within 24 hours to confirm availability.</div>
+      <button type="submit" class="submit-btn">Continue to Login &amp; Confirm</button>
+    </form>
+  </div></div></div></section>
+  <section class="section-alt"><div class="container-sm"><div class="sec-head"><h2>What to Expect</h2></div><div class="steps-grid"><div><div class="step-num">1</div><div class="step-title">Submit Request</div><div class="step-text">Fill out the booking form with your preferred date and service</div></div><div><div class="step-num">2</div><div class="step-title">Confirmation Call</div><div class="step-text">We'll contact you within 24 hours to confirm availability</div></div><div><div class="step-num">3</div><div class="step-title">Your Appointment</div><div class="step-text">Relax and enjoy your beauty transformation</div></div></div></div></section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <div class="page-hero"><h1>Get in Touch</h1><p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p></div>
+  <section class="section"><div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Reach out through any of these channels. We typically respond within 24 hours.</p>
+        <div class="contact-item"><div class="contact-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:3477646220">(347) 764-6220</a><p>Mon&ndash;Sat, 9AM &ndash; 7PM EST</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#9993;</div><div><h4>Email</h4><a href="/cdn-cgi/l/email-protection#cfaeada6abbdaebfaabc8fa8a2aea6a3e1aca0a2"><span class="__cf_email__" data-cfemail="69080b000d1b08190c1a290e04080005470a0604">[email&#160;protected]</span></a><p>We'll respond within 24 hours</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128205;</div><div><h4>Location</h4><span style="color:var(--muted);font-size:.9rem">Charlotte, North Carolina</span><p>Serving Charlotte and surrounding areas</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128247;</div><div><h4>Instagram</h4><a href="https://instagram.com" target="_blank">@abisdrapesmakeup</a><p>See our latest work</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128172;</div><div><h4>WhatsApp</h4><a href="https://wa.me/13477646220" target="_blank" class="wa-btn">&#128172; Chat on WhatsApp</a></div></div>
+      </div>
+      <div class="contact-form-card">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="handleContact(event)">
+          <div class="form-group"><label>Your Name *</label><input type="text" required placeholder="Enter your name"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" required placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(704) XXX-XXXX"></div>
+          <div class="form-group"><label>Your Message *</label><textarea rows="5" required placeholder="Tell us how we can help you..."></textarea></div>
+          <button type="submit" class="submit-btn">Send Message &#9992;&#65039;</button>
+        </form>
+      </div>
+    </div>
+    <div class="map-box"><p style="font-size:2.5rem">&#128205;</p><p>Charlotte, North Carolina</p><span>Serving Charlotte and surrounding areas within 25 miles</span></div>
+  </div></section>
+  <section class="section-alt"><div class="container"><div class="sec-head"><h2>Frequently Asked Questions</h2></div><div class="faq-list">
+    <div class="faq-item" onclick="toggleFAQ(this)"><div class="faq-q">How far in advance should I book? <span>+</span></div><div class="faq-a">For bridal services, we recommend booking 3&ndash;6 months in advance. For other services, 2&ndash;4 weeks notice is typically sufficient.</div></div>
+    <div class="faq-item" onclick="toggleFAQ(this)"><div class="faq-q">Do you travel for appointments? <span>+</span></div><div class="faq-a">Yes! We provide on-location services throughout Charlotte and surrounding areas. A travel fee of $30 applies for locations outside Charlotte city limits.</div></div>
+    <div class="faq-item" onclick="toggleFAQ(this)"><div class="faq-q">What is your cancellation policy? <span>+</span></div><div class="faq-a">We require 48 hours notice for cancellations. Cancellations made less than 48 hours before your appointment may be subject to a cancellation fee.</div></div>
+    <div class="faq-item" onclick="toggleFAQ(this)"><div class="faq-q">Do you provide trials before the wedding? <span>+</span></div><div class="faq-a">Yes! We highly recommend a trial session before your wedding day. Trial sessions are $120 and allow us to perfect your look.</div></div>
+  </div></div></section>
+</div>
+
+<!-- LOGIN -->
+<div id="page-login" class="page">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <h2>Abi's Drapes &amp; Makeup</h2>
+        <p>Sign in to manage your appointments</p>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display:flex;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.5rem;">
+        <button id="tab-signin" onclick="switchAuthTab('signin')" style="flex:1;padding:.7rem;border:none;background:var(--primary);color:#fff;font-family:var(--font-body);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;">Sign In</button>
+        <button id="tab-signup" onclick="switchAuthTab('signup')" style="flex:1;padding:.7rem;border:none;background:transparent;color:var(--muted);font-family:var(--font-body);font-size:.875rem;cursor:pointer;transition:all .2s;">Create Account</button>
+      </div>
+
+      <!-- Sign In -->
+      <form id="signin-form" onsubmit="handleSignIn(event)">
+        <div class="form-group"><label>Email Address</label><input type="email" id="signin-email" required placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="signin-password" required placeholder="Enter your password"></div>
+        <div id="signin-error" style="color:#d4183d;font-size:.82rem;background:#fdecea;border-radius:10px;padding:.6rem .9rem;margin-bottom:.75rem;display:none;"></div>
+        <button type="submit" class="submit-btn" id="signin-btn">Sign In</button>
+      </form>
+
+      <!-- Sign Up -->
+      <form id="signup-form" onsubmit="handleSignUp(event)" style="display:none;">
+        <div class="form-group"><label>Full Name</label><input type="text" id="signup-name" required placeholder="Enter your full name"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="signup-email" required placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="signup-password" required placeholder="Minimum 6 characters"></div>
+        <div id="signup-error" style="color:#d4183d;font-size:.82rem;background:#fdecea;border-radius:10px;padding:.6rem .9rem;margin-bottom:.75rem;display:none;"></div>
+        <button type="submit" class="submit-btn" id="signup-btn">Create Account</button>
+      </form>
+
+      <div class="login-divider"><span>or</span></div>
+
+      <!-- Google -->
+      <button onclick="handleGoogleSignIn()" style="width:100%;padding:.85rem;border:1.5px solid var(--border);border-radius:50px;background:#fff;font-family:var(--font-body);font-size:.875rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:background .2s;color:var(--foreground);" onmouseover="this.style.background='var(--bg-alt)'" onmouseout="this.style.background='#fff'">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20H24v8h11.3C33.6 33.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16 19 13 24 13c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.8 13.5-4.8l-6.2-5.2C29.4 35.6 26.8 36 24 36c-5.2 0-9.5-3.3-11.2-7.9l-6.5 5C9.6 39.5 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20H24v8h11.3c-.9 2.5-2.5 4.6-4.7 6l6.2 5.2C40.7 35.6 44 30.2 44 24c0-1.3-.1-2.7-.4-4z"/></svg>
+        Continue with Google
+      </button>
+
+      <div class="login-switch" style="margin-top:1rem;"><a onclick="handleForgotPassword()" style="cursor:pointer;">Forgot your password?</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="page-dashboard" class="page">
+  <div class="page-hero">
+    <h1>My Dashboard</h1>
+    <p id="dashboard-greeting">Welcome back!</p>
+  </div>
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+        <h2 style="font-family:var(--font-display);">My Bookings</h2>
+        <div style="display:flex;gap:1rem;">
+          <button class="btn-primary" onclick="showPage('booking')">+ New Booking</button>
+          <button class="btn-outline" onclick="handleSignOut()">Sign Out</button>
+        </div>
+      </div>
+      <div id="bookings-list">
+        <div style="text-align:center;padding:4rem;color:var(--muted);">
+          <div style="font-size:3rem;margin-bottom:1rem;">&#128197;</div>
+          <p>Loading your bookings…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="logo-name">Abi's Drapes &amp; Makeup</span><p>Specializing in South Indian bridal makeup and traditional saree draping services in Charlotte, North Carolina.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a onclick="showPage('services')">Services</a></li><li><a onclick="showPage('gallery')">Gallery</a></li><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('booking')">Book Appointment</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><div class="contact-li">&#128222; <a href="tel:3477646220">(347) 764-6220</a></div><div class="contact-li">&#9993; <a href="/cdn-cgi/l/email-protection#0362616a67716273667043646e626a6f2d606c6e"><span class="__cf_email__" data-cfemail="d1b0b3b8b5a3b0a1b4a291b6bcb0b8bdffb2bebc">[email&#160;protected]</span></a></div><div class="contact-li">&#128205; Charlotte, NC</div></div>
+    <div class="footer-col"><h4>Follow Us</h4><a class="ig-btn" href="https://instagram.com" target="_blank">&#128247;</a></div>
+  </div>
+  <div class="footer-bottom">&copy; <span id="year"></span> Abi's Drapes &amp; Makeup. All rights reserved.</div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const pages=['home','services','gallery','about','booking','contact','login','dashboard'];
+function showPage(n){pages.forEach(p=>{document.getElementById('page-'+p).classList.remove('active');const b=document.getElementById('nav-'+p);if(b)b.classList.remove('active')});document.getElementById('page-'+n).classList.add('active');const b=document.getElementById('nav-'+n);if(b)b.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(n==='gallery')renderGallery();}
+function toggleMobile(){document.getElementById('mobile-nav').classList.toggle('open')}
+function closeMobile(){document.getElementById('mobile-nav').classList.remove('open')}
+function toggleFAQ(el){el.classList.toggle('open')}
+function handleContact(e){e.preventDefault();showToast("Message sent! We'll get back to 
